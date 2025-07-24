@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz HTML</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f2f2f2; }
+    h2 { color: #004d66; }
+    .question { margin-bottom: 20px; background: white; padding: 15px; border-radius: 8px; }
+    button { background: #00838f; color: white; padding: 10px 20px; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Quiz HTML</h2>
+
+  <div class="question">
+    <p>1. Quelle balise est utilisée pour insérer une image ?</p>
+    <input type="radio" name="q1" value="a"> &lt;image&gt;<br>
+    <input type="radio" name="q1" value="b"> &lt;img&gt;<br>
+    <input type="radio" name="q1" value="c"> &lt;src&gt;<br>
+  </div>
+
+  <div class="question">
+    <p>2. Quelle est la bonne structure de base d'un document HTML ?</p>
+    <input type="radio" name="q2" value="a"> &lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;<br>
+    <input type="radio" name="q2" value="b"> &lt;body&gt;&lt;html&gt;&lt;/html&gt;&lt;/body&gt;<br>
+    <input type="radio" name="q2" value="c"> &lt;head&gt;&lt;/head&gt;&lt;html&gt;&lt;/html&gt;<br>
+  </div>
+
+  <div class="question">
+    <p>3. Quelle balise permet de créer un lien hypertexte ?</p>
+    <input type="radio" name="q3" value="a"> &lt;link&gt;<br>
+    <input type="radio" name="q3" value="b"> &lt;a&gt;<br>
+    <input type="radio" name="q3" value="c"> &lt;href&gt;<br>
+  </div>
+
+  <button onclick="corriger()">Soumettre</button>
+
+  <p id="resultat"></p>
+
+  <script>
+    function corriger() {
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === 'b') score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === 'a') score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === 'b') score++;
+
+      document.getElementById("resultat").innerText = `Votre score est de ${score}/3`;
+    }
+  </script>
+</body>
+</html>
